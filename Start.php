@@ -1,5 +1,6 @@
 <?php
 
+use world\Animal\AnimalLifeController;
 use world\Tools\ConsoleText;
 use world\World\World;
 
@@ -13,7 +14,7 @@ spl_autoload_register(function ($class) {
     require_once $filename;
 });
 
-$world = new World();
+$world = new World(new AnimalLifeController());
 $world->startCycles();
 
 ConsoleText::echoTextOrange('=========FINISH=========');

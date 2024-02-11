@@ -4,7 +4,6 @@ namespace world\Animal;
 
 use world\Plant\PlantStorage;
 use world\Tools\ConsoleText;
-use world\World;
 
 class AnimalLifeController
 {
@@ -20,7 +19,7 @@ class AnimalLifeController
 
     const RAND_MIN = 0;
 
-    public static function controleLife(Animal $animal, \world\World\World $world, int $countAnimal): void
+    public function controleLife(Animal $animal, \world\World\World $world, int $countAnimal): void
     {
         if ($animal->getLife() > self::OLD_AN || $animal->getLife() < self::YANG_AN) {
             $world->createPlant();
@@ -45,7 +44,7 @@ class AnimalLifeController
         }
     }
 
-    public static function cycle(PlantStorage $plants, Animal $animal): void
+    public function cycle(PlantStorage $plants, Animal $animal): void
     {
         $rand = rand(self::RAND_MIN, abs($animal->getLife() - self::WEIGHT_RAND));
         if ($rand < self::RAND_CHANCE) {
